@@ -1,0 +1,180 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Fee Submission</title>
+    <style>
+        /* Global Styles */
+        body {
+            font-family: 'Arial', sans-serif;
+            background: url('background.jpg') no-repeat center center fixed; /* Add your background image */
+            background-size: cover;
+            background-position: center;
+            height: 100vh;
+            margin: 0;
+            padding: 0;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            overflow: hidden;
+        }
+
+        /* Create a blurry background */
+        ::after {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            right: 0;
+            bottom: 0;
+            background: rgba(136, 158, 168, 0.4); /* Darker overlay for contrast */
+            backdrop-filter: blur(10px);
+            z-index: -1;
+        }
+
+        /* Container for the form with blurry background effect */
+        .container {
+            background: rgba(173, 216, 230, 0.7); /* Light Blue with Translucency */
+            border-radius: 15px;
+            box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1);
+            padding: 30px;
+            width: 100%;
+            max-width: 400px;
+            z-index: 1;
+            backdrop-filter: blur(8px); /* Apply blur effect to the form */
+        }
+
+        h2 {
+            text-align: center;
+            color: #000000;
+            font-size: 34px;
+            margin-bottom: 20px;
+        }
+
+        label {
+            font-size: 20px;
+            color: #000000;
+            margin-bottom: 5px;
+            display: block;
+            font-weight: bold;
+        }
+
+        input, select {
+            width: 100%;
+            padding: 10px;
+            margin-bottom: 15px;
+            border: 3px solid #ddd;
+            border-radius: 5px;
+            font-size: 16px;
+            box-sizing: border-box;
+        }
+
+        button {
+            width: 100%;
+            padding: 10px;
+            background-color: #0072ff;
+            color: white;
+            font-size: 18px;
+            font-weight: bold;
+            border: none;
+            border-radius: 5px;
+            cursor: pointer;
+            transition: all 0.3s ease;
+        }
+
+        button:hover {
+            background-color: #00c6ff;
+        }
+
+        .qr-code {
+            display: none;
+            text-align: center;
+            margin-top: 20px;
+        }
+
+        #timer {
+            font-size: 20px;
+            margin-top: 10px;
+            color: #333;
+        }
+
+        .qr-container {
+            max-width: 200px;
+            margin: 0 auto;
+        }
+
+        .qr-container img {
+            width: 100%;
+            border-radius: 10px;
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <h2>Fee Submission</h2>
+        <form id="fee-form">
+            <label for="student-name">Student Name</label>
+            <input type="text" id="student-name" placeholder="Enter student name" required>
+
+            <label for="student-id">Student ID</label>
+            <input type="text" id="student-id" placeholder="Enter student ID" required>
+
+            <label for="class">Class</label>
+            <select id="class" required>
+                <option value="1">Play Group</option>
+                <option value="2">I - V</option>
+                <option value="3">VI - VIII</option>
+                <option value="4">IX - X</option>
+                <option value="5">XI - XII</option> <!-- Fixed the duplicate option -->
+            </select>
+
+            <label for="fee-amount">Fee Amount</label>
+            <select id="fees" required>
+                <option value="1">20,000</option>
+                <option value="2">30,000</option>
+                <option value="3">40,000</option>
+                <option value="4">50,000</option>
+                <option value="5">60,000</option> <!-- Fixed the duplicate option -->
+            </select>
+            <input type="number" id="fee-amount" placeholder="A message with school fees." required>
+
+            <button type="button" id="generate-btn">Generate QR Code</button>
+        </form>
+
+        <div class="qr-code" id="qr-code">
+            <div class="qr-container">
+                <img id="qr-img" src="qr-code.jpg" alt="QR Code"> <!-- Use correct path for QR -->
+            </div>
+            <p>Feel free to contact us.</p>
+            <div id="timer">Time remaining: 60s</div>
+        </div>
+    </div>
+
+    <script>
+        const generateButton = document.getElementById('generate-btn');
+        const qrCode = document.getElementById('qr-code');
+        const timerElement = document.getElementById('timer');
+        let timer;
+
+        generateButton.addEventListener('click', function() {
+            // Show QR code
+            qrCode.style.display = 'block';
+
+            // Start countdown timer
+            let timeLeft = 60;
+            timerElement.textContent = `Time remaining: ${timeLeft}s`;
+
+            timer = setInterval(() => {
+                timeLeft--;
+                timerElement.textContent = `Time remaining: ${timeLeft}s`;
+
+                if (timeLeft <= 0) {
+                    clearInterval(timer);
+                    qrCode.style.display = 'none';  // Hide QR code after 60s
+                }
+            }, 1000);
+        });
+    </script>
+</body>
+</html>
