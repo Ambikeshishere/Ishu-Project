@@ -20,7 +20,6 @@ header {
     background-color: #ffffff;
     color: rgb(0, 0, 0);
     padding: 20px;
-    
 }
 
 /* Style when the header is minimized */
@@ -45,6 +44,7 @@ header.shrink .school-info h1 {
 header.shrink .school-info p {
     font-size: 12px; /* Shrink text size */
 }
+
 header .logo {
     display: flex;
     align-items: center;
@@ -69,7 +69,6 @@ header nav ul li a {
     font-weight: bold;
 }
 
-/* Hero Section */
 /* Hero Section */
 .hero {
     position: relative;
@@ -107,25 +106,6 @@ header nav ul li a {
     animation-delay: 0.5s; /* Delay the animation to appear after a moment */
 }
 
-/* Animation for fading in and sliding up */
-@keyframes fadeInUp {
-    0% {
-        opacity: 0;
-        transform: translateY(30px); /* Start below and transparent */
-    }
-    100% {
-        opacity: 1;
-        transform: translateY(0); /* End at normal position */
-    }
-}
-
-.hero-content p {
-    display: inline-block;
-    white-space: nowrap; /* Prevents the text from wrapping */
-    overflow: hidden; /* Hides the text initially */
-    animation: typing 3s steps(30) infinite, reset 0s 3s infinite; /* Typing loop animation without cursor */
-}
-
 /* Typing Animation Keyframes */
 @keyframes typing {
     from {
@@ -136,7 +116,6 @@ header nav ul li a {
     }
 }
 
-/* Reset the text to start over after typing animation */
 @keyframes reset {
     0% {
         width: 100%;
@@ -145,6 +124,7 @@ header nav ul li a {
         width: 0;
     }
 }
+
 /* About Section */
 #about {
     padding: 40px;
@@ -172,7 +152,6 @@ header nav ul li a {
     margin: 10px 0;
 }
 
-
 /* Gallery Section */
 #gallery {
     padding: 40px;
@@ -181,15 +160,13 @@ header nav ul li a {
     box-sizing: border-box;
 }
 
-/* Make sure the image gallery takes up the full width of the container */
 .image-gallery {
     display: flex;
     justify-content: space-between;
-    gap: 40px; /* Space between the cards */
+    gap: 40px;
     flex-wrap: wrap; /* Allow wrapping of cards on smaller screens */
 }
 
-/* Each gallery card will fill 50% of the width on larger screens */
 .gallery-card {
     width: 48%; /* 50% minus margin for gap between cards */
     border: 0px solid #ddd;
@@ -199,51 +176,34 @@ header nav ul li a {
     box-sizing: border-box;
 }
 
-h3 {
-    margin-bottom: px;
-}
-
-.carousel {
-    position: relative;
-}
-
-.carousel-image {
-    width: 80%;
-    height: auto;
-    object-fit: cover;
-    border-radius: 10px;
-}
-
-.carousel-controls {
-    position: absolute;
-    top: 50%;
-    width: 100%;
-    display: flex;
-    justify-content: space-between;
-    transform: translateY(-50%);
-}
-
-.arrow-left,
-.arrow-right {
-    background-color: transparent;
-    color: rgb(31, 29, 29);
-    border: none;
-    font-size: 2rem;
-    padding: 1px;
-    cursor: pointer;
-    border-radius: 100%;
-    transition: background-color 0.3s;
-}
-
-.arrow-left:hover,
-.arrow-right:hover {
-    background-color: transparent;
-}
-
 /* Responsive layout for smaller screens */
 @media (max-width: 768px) {
-    .gallery-card {
-        width: 100%; /* Full width for smaller screens */
+    header {
+        flex-direction: column;
+        text-align: center;
+    }
+
+    header .logo {
+        margin-bottom: 20px;
+    }
+
+    header nav ul {
+        flex-direction: column;
+        padding-top: 10px;
+    }
+
+    header nav ul li {
+        margin: 10px 0;
+    }
+
+    .image-gallery {
+        flex-direction: column;
+        gap: 20px;
+    }
+
+    .image-gallery img {
+        width: 80%;
+        margin-bottom: 20px;
     }
 }
 
@@ -257,8 +217,15 @@ h3 {
         font-size: 1.5rem; /* Adjust arrow size for smaller screens */
         padding: 8px;
     }
-}
 
+    .hero-content {
+        font-size: 1.5rem; /* Adjust hero section text size */
+    }
+
+    .hero-content h2 {
+        font-size: 1.5rem; /* Smaller heading text */
+    }
+}
 
 /* Contact Section */
 #contact {
@@ -294,32 +261,6 @@ h3 {
     transition: transform 0.3s ease;
 }
 
-.contact-card h3 {
-    font-size: 1.5rem;
-    margin-bottom: 15px;
-}
-
-.contact-card p {
-    font-size: 1rem;
-    margin-bottom: 10px;
-    line-height: 1.5;
-}
-
-.contact-card a {
-    color: #0072ff;
-    text-decoration: none;
-}
-
-.contact-card a:hover {
-    text-decoration: underline;
-}
-
-/* Hover effect for the contact cards */
-.contact-card:hover {
-    transform: translateY(-5px);
-    box-shadow: 0 8px 16px rgba(0, 0, 0, 0.2);
-}
-
 /* Responsive layout */
 @media (max-width: 768px) {
     .contact-info {
@@ -341,43 +282,7 @@ footer {
     color: white;
 }
 
-/* Hover effect for nav links */
-header nav ul li a:hover {
-    color: #f4f4f4;
-    text-decoration: underline;
-}
-
-/* Mobile responsiveness */
-@media screen and (max-width: 768px) {
-    header {
-        flex-direction: column;
-        text-align: center;
-    }
-
-    header .logo {
-        margin-bottom: 20px;
-    }
-
-    header nav ul {
-        flex-direction: column;
-        padding-top: 10px;
-    }
-
-    header nav ul li {
-        margin: 10px 0;
-    }
-
-    .image-gallery {
-        flex-direction: column;
-    }
-
-    .image-gallery img {
-        width: 80%;
-        margin-bottom: 20px;
-    }
-}
-
-/* Statistics Section */
+/* Stats Section */
 #statistics {
     padding: 40px;
     background-color: #e9ecef;
@@ -401,24 +306,13 @@ header nav ul li a:hover {
     transition: transform 0.3s ease, box-shadow 0.3s ease;
 }
 
-.stat-card h3 {
-    font-size: 1.5rem;
-    color: #2a3d66;
-    margin-bottom: 10px;
+/* Responsive layout for stat cards */
+@media (max-width: 768px) {
+    .stat-card {
+        width: 100%;
+        max-width: 300px;
+    }
 }
-
-.stat-card p {
-    font-size: 2rem;
-    font-weight: bold;
-    color: #28a745; /* Green color for the stats */
-}
-
-/* Hover effect for stat cards */
-.stat-card:hover {
-    transform: translateY(-10px); /* Slight lift effect */
-    box-shadow: 0 8px 16px rgba(0, 0, 0, 0.15); /* Deeper shadow on hover */
-}
-
 
 /* Vision and Mission Section */
 #vision-mission {
@@ -433,402 +327,31 @@ header nav ul li a:hover {
     text-align: center;
     font-size: 2.5rem;
     margin-bottom: 20px;
-    color: #2a3d66; /* Header color */
-    width: 100%;
 }
 
-/* Vision Card */
-.vision-card {
-    background-color: #007bff; /* Blue color */
-    color: white;
-    padding: 30px;
-    width: 48%;
-    border-radius: 10px;
-    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
-    transition: transform 0.3s ease, box-shadow 0.3s ease;
-}
-
-.vision-card h3 {
-    font-size: 1.8rem;
-    margin-bottom: 15px;
-}
-
-.vision-card p {
-    font-size: 1.2rem;
-}
-
-/* Mission Card */
+.vision-card,
 .mission-card {
-    background-color: #28a745; /* Green color */
-    color: white;
-    padding: 30px;
-    width: 48%;
-    border-radius: 10px;
-    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
-    transition: transform 0.3s ease, box-shadow 0.3s ease;
-}
-
-.mission-card h3 {
-    font-size: 1.8rem;
-    margin-bottom: 15px;
-}
-
-.mission-card p {
-    font-size: 1.2rem;
-}
-
-/* Hover effect for vision and mission cards */
-.vision-card:hover,
-.mission-card:hover {
-    transform: translateY(-10px); /* Slight lift effect */
-    box-shadow: 0 8px 16px rgba(0, 0, 0, 0.15); /* Deeper shadow on hover */
-}
-
-/* Academics Section */
-#academics {
-    padding: 40px;
-    background-color: #e9ecef;
-    text-align: center;
-}
-
-#academics h2 {
-    font-size: 2.5rem;
-    margin-bottom: 20px;
-    color: #2a3d66; /* Matching header color */
-}
-
-#academics p {
-    font-size: 1.2rem;
-    margin-bottom: 30px;
-}
-
-/* Academic Cards Container */
-.academic-cards {
-    display: grid;
-    grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
-    gap: 20px;
-    justify-items: center;
-    margin-top: 20px;
-}
-
-/* Individual Academic Card */
-.academic-card {
     background-color: white;
     padding: 20px;
     border-radius: 10px;
     box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
-    text-align: center;
-    transition: transform 0.3s ease, box-shadow 0.3s ease;
+    width: 48%; /* 50% minus the gap for two cards side by side */
 }
 
-.academic-card h3 {
-    font-size: 1.8rem;
-    color: #2a3d66;
-    margin-bottom: 10px;
+@media (max-width: 768px) {
+    #vision-mission {
+        flex-direction: column;
+    }
+
+    .vision-card,
+    .mission-card {
+        width: 100%;
+    }
 }
 
-.academic-card p {
-    font-size: 1.2rem;
-    margin-bottom: 15px;
-}
-
-.academic-card:hover {
-    transform: translateY(-10px); /* Slight lift effect */
-    box-shadow: 0 8px 16px rgba(0, 0, 0, 0.15); /* Deeper shadow on hover */
-}
-
-/* Subjects Dropdown Styling */
-#subjects-form {
-    margin: 15px 0;
-}
-
-#subjects-dropdown {
-    padding: 10px;
-    font-size: 1rem;
-    border: 1px solid #ccc;
-    border-radius: 5px;
-    width: 100%;
-    max-width: 200px;
-}
-
-#subjects-form button {
-    padding: 10px 20px;
-    margin-top: 10px;
-    background-color: #28a745;
-    color: white;
-    border: none;
-    border-radius: 5px;
-    font-size: 1rem;
-    cursor: pointer;
-    transition: background-color 0.3s ease;
-}
-
-#subjects-form button:hover {
-    background-color: #218838;
-}
-
-/* Subject Info Styling */
-#subject-info {
-    margin-top: 20px;
-    padding: 15px;
-    background-color: #f8f9fa;
-    border: 1px solid #ccc;
-    border-radius: 5px;
-    font-size: 1rem;
-    color: #2a3d66;
-}
-
-
-/* Syllabus Section */
-.syllabus-buttons {
-    display: grid;
-    grid-template-columns: repeat(3, 1fr);
-    gap: 20px;
-    margin-top: 20px;
-}
-
-/* Button Style */
-.syllabus-buttons button {
+/* Ensuring the footer always stays at the bottom */
+footer {
     position: relative;
-    background: linear-gradient(45deg, #1e3c72, #2a5298);
-    color: white;
-    padding: 20px 30px;
-    font-size: 1.1rem;
-    font-weight: 600;
-    border: 2px solid transparent;
-    border-radius: 50px; /* Round corners for a pill shape */
-    text-align: center;
-    cursor: pointer;
-    transition: all 0.3s ease;
-    overflow: hidden;
-    box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1);
-}
-
-/* Adding image to button */
-.syllabus-buttons button .button-image {
-    position: absolute;
-    top: 50%;
-    left: 50%;
-    transform: translate(-50%, -50%);
-    width: 30px; /* Adjust the size of the image */
-    height: 30px;
-    opacity: 0;
-    transition: opacity 0.3s ease;
-}
-
-/* Show image when hovered */
-.syllabus-buttons button:hover .button-image {
-    opacity: 1; /* Make the image visible on hover */
-}
-
-/* Link inside button */
-.syllabus-buttons button a {
-    color: white;
-    text-decoration: none;
-    display: block;
-}
-
-/* Hover Effects */
-.syllabus-buttons button:hover {
-    transform: scale(1.05); /* Slight zoom effect */
-    background: linear-gradient(45deg, #00c6ff, #0072ff); /* Lighter gradient on hover */
-    border-color: #fff; /* Light border on hover */
-    box-shadow: 0 10px 20px rgba(0, 0, 0, 0.2); /* Deeper shadow on hover */
-}
-
-/* Icon effect for button */
-.syllabus-buttons button::before {
-    content: "📄";
-    position: absolute;
-    top: 50%;
-    left: 50%;
-    transform: translate(-50%, -50%);
-    font-size: 2rem;
-    opacity: 0;
-    transition: opacity 0.3s ease;
-}
-
-/* Show icon on hover */
-.syllabus-buttons button:hover::before {
-    opacity: 0;
-    
-
-
-   
-}
-
-/* Fee Section */ 
-
-#fee-details {
-    padding: 40px;
-    background-color: #f4f4f4;
-    color: #333;
-    text-align: center;
-}
-
-#fee-details h2 {
-    font-size: 2.5rem;
-    margin-bottom: 30px;
-}
-
-/* Flexbox layout for fee cards */
-.fee-cards {
-    display: flex; /* Use flexbox to place items in a row */
-    justify-content: space-between; /* Ensure even spacing between cards */
-    gap: 20px; /* Space between cards */
-    margin-top: 20px;
-    flex-wrap: wrap; /* Allows wrapping on smaller screens */
-}
-
-/* Fee Card Styles */
-.fee-card {
-    background-color: #fff;
-    padding: 20px;
-    border-radius: 10px;
-    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
-    transition: transform 0.3s ease;
-    border-left: 4px solid #0072ff;
-    flex: 1; /* Allows the cards to be flexible */
-    min-width: 250px; /* Ensures that cards don't shrink too much */
-    max-width: 280px; /* Controls the maximum width of cards */
-}
-
-.fee-card h3 {
-    font-size: 1.5rem;
-    margin-bottom: 15px;
-}
-
-/* Remove underline from links inside buttons */
-.fee-card a {
-    text-decoration: none; /* Removes underline */
-    color: white; /* Ensures the text color is still white */
-}
-
-/* Button Style */
-.fee-card .pay-online-btn {
-    margin-top: 20px;
-    background-color: #0072ff;
-    color: white;
-    padding: 10px 20px;
-    font-size: 1.1rem;
-    border: none;
-    border-radius: 5px;
-    cursor: pointer;
-    transition: background-color 0.3s ease;
-}
-
-.fee-card .pay-online-btn:hover {
-    background-color: #005bb5;
-}
-
-.fee-card ul {
-    list-style: none;
-    padding: 0;
-}
-
-.fee-card li {
-    font-size: 1rem;
-    margin-bottom: 10px;
-}
-
-.fee-card .pay-online-btn {
-    margin-top: 20px;
-    background-color: #0072ff;
-    color: white;
-    padding: 10px 20px;
-    font-size: 1.1rem;
-    border: none;
-    border-radius: 5px;
-    cursor: pointer;
-    transition: background-color 0.3s ease;
-}
-
-.fee-card .pay-online-btn:hover {
-    background-color: #005bb5;
-}
-
-.fee-notes {
-    margin-top: 30px;
-    font-size: 1.2rem;
-    text-align: left;
-    max-width: 1000px;
-    margin: 30px auto;
-}
-
-.fee-notes h4 {
-    font-size: 1.4rem;
-    margin-bottom: 10px;
-}
-
-.fee-notes p {
-    font-size: 1rem;
-    margin-bottom: 20px;
-}
-
-.fee-card:hover {
-    transform: translateY(-5px);
-    box-shadow: 0 8px 16px rgba(0, 0, 0, 0.2);
-}
-
-/* Responsive layout for smaller screens */
-@media screen and (max-width: 768px) {
-    .fee-cards {
-        flex-direction: column; /* Stack cards vertically on smaller screens */
-        align-items: center; /* Center the cards */
-    }
-}
-
-@media screen and (max-width: 480px) {
-    .fee-cards {
-        flex-direction: column; /* Stack cards vertically for very small screens */
-        align-items: center; /* Center the cards */
-    }
-}
-
-/* Principal's Pen Section */
-#principals-pen {
-    padding: 20px 0;
-    background-color: #f8f8f8;
-    text-align: center;
-}
-
-#principals-pen h2 {
-    font-size: 32px;
-    font-weight: bold;
-    margin-bottom: 20px;
-    color: #333;
-}
-
-.principals-message {
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    gap: 30px;
-    max-width: 70vw;
-    margin: auto ;
-}
-
-.principal-photo img {
-    width: 80%;
-    border-radius: 50%;
-    border: 5px solid #333;
-}
-
-.message {
-    max-width: 700px;
-    text-align: left;
-    font-size: 18px;
-    line-height: 1.6;
-    color: #555;
-}
-
-.message h3 {
-    font-size: 24px;
-    font-weight: bold;
-    color: #333;
-    margin-bottom: 15px;
-}
-
-.message p {
-    margin-bottom: 15px;
+    bottom: 0;
+    width: 100%;
 }
